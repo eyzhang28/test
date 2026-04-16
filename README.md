@@ -10,17 +10,17 @@ This repository exposes a lightweight unauthenticated HTTP health endpoint:
 ## Run
 
 ```bash
-python server.py
+python3 server.py
 ```
 
 Optional port override:
 
 ```bash
-PORT=9000 python server.py
+PORT=9000 python3 server.py
 ```
 
 ## Smoke test
 
 ```bash
-python -m unittest -v
+python3 -m unittest discover -s tests -v
 ```
