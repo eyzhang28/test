@@ -4,6 +4,7 @@ import numpy as np
 import tabula as tb
 import glob, os
 import pdfplumber
+from typing import List
 
 st.title('Test')
 
@@ -21,6 +22,11 @@ print_data = st.file_uploader("Upload Print Files", type=["csv"])
 
 
 total_lines = []
+def get_hf_tokens(env_var_name: str = "HF_TOKENS") -> List[str]:
+    """Return non-empty Hugging Face tokens from an environment variable."""
+    raw_value = os.environ.get(env_var_name, "")
+    return [token.strip() for token in raw_value.split(",") if token.strip()]
+
 def string_cleaning(s):
     try:
         s = s.replace(" ", "")
